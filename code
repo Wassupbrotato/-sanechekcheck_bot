@@ -1,0 +1,55 @@
+import telebot
+Token = "8207365528:AAEqBbWktb6yhfrfqjevNczyzcQ0cMRcRQg"
+bot = telebot.TeleBot(Token)
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.send_message(message.chat.id, "Привет! Я бот, который поможет тебе узнать, какие материалы можно переработать. Просто введи команду с названием материала, и я дам тебе ответ. Например, попробуй /plastic_bottle или /glass_bottle.")
+
+@bot.message_handler(commands=['plastic_bottle'])
+def answer_plastic(message):
+    bot.reply_to(message, "Да, пластиковую бутылку можно переработать — и довольно эффективно.")
+
+@bot.message_handler(commands=["apple"])
+def answer_apple(message):
+    bot.reply_to(message, "Органические отходы, включая остатки фруктов, могут перерабатываться в биогаз (метан)")
+
+@bot.message_handler(commands=["glass_bottle"])
+def answer_glass(message):
+    bot.reply_to(message, "Да, стеклянную бутылку можно переработать — стекло относится к материалам, пригодным для многократного рециклинга без потери качества.")
+
+@bot.message_handler(commands=["wood"])
+def answer_wood(message):
+    bot.reply_to(message, "Да, дерево (а точнее — древесину и древесные отходы) можно и активно перерабатывают. Это помогает сократить объёмы мусора и получить новые полезные продукты.")
+
+@bot.message_handler(commands=["paper"])
+def answer_paper(message):
+    bot.reply_to(message, "Да, бумагу можно переработать — это помогает сократить объемы мусора и сохранить природные ресурсы.")
+
+@bot.message_handler(commands=["plastic_bag"])
+def answer_plastic_bag(message):
+    bot.reply_to(message, "Да, пластиковый пакет можно переработать — но это требует специальной инфраструктуры и не всегда возможно.")
+
+@bot.message_handler(commands=["metal_can"])
+def answer_metal_can(message):
+    bot.reply_to(message, "Да, металлическую банку можно переработать — металл является одним из самых эффективных материалов для рециклинга.")
+
+@bot.message_handler(commands=["cardboard"])
+def answer_cardboard(message):
+    bot.reply_to(message, "Да, картон можно переработать — это помогает сократить объемы мусора и сохранить природные ресурсы.")
+
+@bot.message_handler(commands=["vinyl"])
+def answer_vinyl(message):
+    bot.reply_to(message, "Да, винил можно переработать — но это требует специальной инфраструктуры и не всегда возможно.")
+
+
+@bot.message_handler(commands=["aluminum_can"])
+def answer_aluminum_can(message):
+    bot.reply_to(message, "Да, алюминиевую банку можно переработать — алюминий является одним из самых эффективных материалов для рециклинга.")
+
+
+bot.message_handler(commands=["light_bulb"])
+def answer_light_bulb(message):
+    bot.reply_to(message, "Да, лампочку можно переработать — это помогает сократить объемы мусора и сохранить природные ресурсы.")
+
+
+bot. infinity_polling()
